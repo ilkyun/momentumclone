@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Today's checklist</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -14,7 +14,17 @@
       <input type="text" placeholder="What is your name?" />
     </form>
     <h4 class="js-greetings greetings"></h4>
+    <span class="start-today">Today, you have to do:</span>
+
+    <form class="js-toDoForm">
+      <input type="text" placeholder="Write today's task" />
+    </form>
+    <ul class="js-toDoList"></ul>
+    <span class="js-weather"></span>
     <script src="clock.js"></script>
     <script src="greeting.js"></script>
+    <script src="todo.js"></script>
+    <script src="bg.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>
