@@ -15,10 +15,32 @@ function deleteToDo(event) {
   });
   toDos = cleanToDos;
   saveToDos();
+  if (toDos.length < 1) {
+    warnNoTask("You finished all your tasks today!!");
+  }
 }
 
 function saveToDos() {
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+}
+function deleteWarn() {
+  document.querySelectorAll(".warning").forEach(function (warn) {
+    warn.remove();
+  });
+}
+function warnNoTask(text) {
+  const li = document.createElement("li");
+  const delBtn = document.createElement("button");
+  const span = document.createElement("span");
+  const newId = toDos.length + 1;
+  delBtn.innerText = "X";
+  delBtn.addEventListener("click", deleteToDo);
+  span.innerText = text;
+  li.className = "warning";
+  li.appendChild(delBtn);
+  li.appendChild(span);
+  li.id = newId;
+  toDoList.appendChild(li);
 }
 
 function paintToDo(text) {
@@ -43,6 +65,7 @@ function paintToDo(text) {
 
 function handleSubmit(event) {
   event.preventDefault();
+  deleteWarn();
   const currentValue = toDoInput.value;
   paintToDo(currentValue);
   toDoInput.value = "";
@@ -56,7 +79,7 @@ function loadToDos() {
       paintToDo(toDo.text);
     });
   } else {
-    paintToDo("No task yet!");
+    warnNoTask("No task yet!");
   }
 }
 function init() {
