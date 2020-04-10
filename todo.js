@@ -71,12 +71,8 @@ function handleSubmit(event) {
 }
 
 function loadToDos() {
-<<<<<<< HEAD
-  const loadedToDos = localStorage.getItem(TODOS_LS);
-=======
   let loadedToDos = [];
   loadedToDos = localStorage.getItem(TODOS_LS);
->>>>>>> master
   if (loadedToDos.length > 0) {
     const parsedToDos = JSON.parse(loadedToDos);
     parsedToDos.forEach(function (toDo) {
