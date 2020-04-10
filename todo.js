@@ -10,7 +10,6 @@ function deleteToDo(event) {
   const li = btn.parentNode;
   toDoList.removeChild(li);
   const cleanToDos = toDos.filter(function (toDo) {
-    console.log(toDo.id, li.id);
     return toDo.id !== parseInt(li.id);
   });
   toDos = cleanToDos;
@@ -72,7 +71,12 @@ function handleSubmit(event) {
 }
 
 function loadToDos() {
+<<<<<<< HEAD
   const loadedToDos = localStorage.getItem(TODOS_LS);
+=======
+  let loadedToDos = [];
+  loadedToDos = localStorage.getItem(TODOS_LS);
+>>>>>>> master
   if (loadedToDos.length > 0) {
     const parsedToDos = JSON.parse(loadedToDos);
     parsedToDos.forEach(function (toDo) {
